@@ -1,6 +1,4 @@
-# Frontend Mentor - Connect Four game solution
-
-## Overview
+# Connect Four game
 
 ### The challenge
 
