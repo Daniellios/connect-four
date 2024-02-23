@@ -1,14 +1,14 @@
-import Logo from "./Logo";
-import { Link } from "react-router-dom";
-import PlayVCpuIcon from "../assets/images/player-vs-cpu.svg";
-import PlayVPlayIcon from "../assets/images/player-vs-player.svg";
-import { useGlobalContext } from "../context";
+import Logo from './Logo';
+import { Link } from 'react-router-dom';
+import PlayVCpuIcon from '../assets/images/player-vs-cpu.svg';
+import PlayVPlayIcon from '../assets/images/player-vs-player.svg';
+import { useGlobalContext } from '../store/context';
 
 const MainMenu = () => {
   const { openGameRules, computerOpponent, humanOpponent } = useGlobalContext();
 
   return (
-    <div className="menu">
+    <div className='menu'>
       <Logo />
       <div>
         {/* Player vs Cpu button when this feature is added */}
@@ -26,19 +26,18 @@ const MainMenu = () => {
         </Link> */}
 
         <Link
-          to="/gamescreen"
-          className="menu-link yellow-bg-clr black-text-clr"
-          onClick={humanOpponent}
-        >
+          to='/gamescreen'
+          className='menu-link yellow-bg-clr black-text-clr'
+          onClick={humanOpponent}>
           play vs player
           <img
             src={PlayVPlayIcon}
-            alt="player vs player icon"
-            className="menu-link-icon"
+            alt='player vs player icon'
+            className='menu-link-icon'
           />
         </Link>
 
-        <button className="menu-btn" onClick={openGameRules}>
+        <button className='menu-btn' onClick={openGameRules}>
           game rules
         </button>
       </div>

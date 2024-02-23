@@ -1,19 +1,18 @@
-import React from "react";
-import Logo from "./Logo";
-import { useGlobalContext } from "../context";
+import React from 'react';
+import Logo from './Logo';
+import { useGlobalContext } from '../store/context';
 
 const GameScreenHeader = () => {
   const { openPauseMenu, restartGame } = useGlobalContext();
   return (
-    <div className="game-screen-header">
+    <div className='game-screen-header'>
       <button
-        className="game-screen-btn game-screen-menu-btn"
-        onClick={openPauseMenu}
-      >
+        className='game-screen-btn game-screen-menu-btn'
+        onClick={openPauseMenu}>
         Menu
       </button>
       <Logo />
-      <button className="game-screen-btn" onClick={restartGame}>
+      <button className='game-screen-btn' onClick={restartGame}>
         Restart
       </button>
     </div>

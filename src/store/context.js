@@ -1,7 +1,7 @@
-import React, { useContext, useReducer } from "react";
-import reducer from "./reducer";
-import RedIndicator from "../src/assets/images/marker-red.svg";
-import YellowIndicator from "../src/assets/images/marker-yellow.svg";
+import React, { useContext, useReducer } from 'react';
+import reducer from './reducer';
+import RedIndicator from '../../src/assets/images/marker-red.svg';
+import YellowIndicator from '../../src/assets/images/marker-yellow.svg';
 
 const AppContext = React.createContext();
 
@@ -28,34 +28,34 @@ const AppProvider = ({ children }) => {
 
   // Game rules
   const openGameRules = () => {
-    dispatch({ type: "DISPLAY_GAME_RULES" });
+    dispatch({ type: 'DISPLAY_GAME_RULES' });
   };
 
   const closeGameRules = () => {
-    dispatch({ type: "CLOSE_GAME_RULES" });
+    dispatch({ type: 'CLOSE_GAME_RULES' });
   };
   ///////////////
 
   // Pause menu
   const openPauseMenu = () => {
-    dispatch({ type: "DISPLAY_PAUSE_MENU" });
+    dispatch({ type: 'DISPLAY_PAUSE_MENU' });
   };
 
   const closePauseMenu = () => {
-    dispatch({ type: "CLOSE_PAUSE_MENU" });
+    dispatch({ type: 'CLOSE_PAUSE_MENU' });
   };
   ////////////////
 
   const switchWhoseTurnItIs = () => {
     // Switches turn from red to yellow and vice versa
-    dispatch({ type: "TOGGLE_TURN" });
+    dispatch({ type: 'TOGGLE_TURN' });
   };
 
   const createBoardCells = () => {
     // Creates the individual slots for the gameboard
     const divArr = [];
     for (let i = 0; i < 42; i++) {
-      const div = document.createElement("div");
+      const div = document.createElement('div');
       divArr.push(div);
     }
     return divArr;
@@ -64,18 +64,18 @@ const AppProvider = ({ children }) => {
   const updatePieces = (indexToUpdate, player) => {
     // Updates the pieces state variable
     dispatch({
-      type: "UPDATE_PIECES_STATE",
+      type: 'UPDATE_PIECES_STATE',
       payload: { indexToUpdate, player },
     });
   };
 
   const turnAnimationOff = () => {
     // sets the isAnimationProgress state variable to false
-    dispatch({ type: "TURN_OFF_ANIMATION" });
+    dispatch({ type: 'TURN_OFF_ANIMATION' });
   };
   const turnAnimationOn = () => {
     // sets the isAnimationProgress state variable to true
-    dispatch({ type: "TURN_ON_ANIMATION" });
+    dispatch({ type: 'TURN_ON_ANIMATION' });
   };
 
   const gamePieceDropAnimation = (gamePiece, pieceDropHeight) => {
@@ -89,7 +89,7 @@ const AppProvider = ({ children }) => {
       ],
       {
         duration: 600,
-        easing: "linear",
+        easing: 'linear',
         iterations: 1,
       }
     );
@@ -99,38 +99,38 @@ const AppProvider = ({ children }) => {
     // returns the appropriate player name in the winner display card
     let name;
     if (state.isRedTurn && state.isComputerPlaying && !state.isDraw) {
-      name = "you";
+      name = 'you';
     } else if (state.isRedTurn && !state.isComputerPlaying && !state.isDraw) {
-      name = "player 1";
+      name = 'player 1';
     } else if (!state.isRedTurn && state.isComputerPlaying && !state.isDraw) {
-      name = "cpu";
+      name = 'cpu';
     } else if (!state.isRedTurn && !state.isComputerPlaying && !state.isDraw) {
-      name = "player 2";
+      name = 'player 2';
     } else {
-      name = "no one";
+      name = 'no one';
     }
     return name;
   };
 
   const displayWinnerBgColor = () => {
     // returns the appropriate class name needed to display the correct background color for the winner
-    let bgColor = "";
+    let bgColor = '';
     let name = displayWinnerName();
 
-    if (name === "you" || name === "player 1") {
-      bgColor = "pink-bg-clr";
-    } else if (name === "player 1" || name === "player 2") {
-      bgColor = "yellow-bg-clr";
+    if (name === 'you' || name === 'player 1') {
+      bgColor = 'pink-bg-clr';
+    } else if (name === 'player 1' || name === 'player 2') {
+      bgColor = 'yellow-bg-clr';
     }
     return bgColor;
   };
 
   const addWinMarker = (boardCell) => {
     // adds circle indicators on the winning game pieces
-    let gameboard = document.querySelector(".gameboard");
+    let gameboard = document.querySelector('.gameboard');
 
-    let winMarker = document.createElement("div");
-    winMarker.className = "piece-win-marker";
+    let winMarker = document.createElement('div');
+    winMarker.className = 'piece-win-marker';
     setTimeout(() => {
       gameboard.children[boardCell].appendChild(winMarker);
     }, 500);
@@ -204,14 +204,14 @@ const AppProvider = ({ children }) => {
 
   const addPointToScore = (player) => {
     if (player === 1) {
-      dispatch({ type: "ADD_POINT_TO_RED" });
+      dispatch({ type: 'ADD_POINT_TO_RED' });
     } else if (player === 2) {
-      dispatch({ type: "ADD_POINT_TO_YELLOW" });
+      dispatch({ type: 'ADD_POINT_TO_YELLOW' });
     }
   };
 
   const declareWinner = (player) => {
-    dispatch({ type: "DECLARE_WINNER" });
+    dispatch({ type: 'DECLARE_WINNER' });
     if (player === 1 || player === 2) {
       addPointToScore(player);
     }
@@ -227,7 +227,7 @@ const AppProvider = ({ children }) => {
       switchWhoseTurnItIs();
     }
     if (!pieces.includes(0)) {
-      dispatch({ type: "DRAW_GAME" });
+      dispatch({ type: 'DRAW_GAME' });
       declareWinner(0);
     }
   };
@@ -247,15 +247,15 @@ const AppProvider = ({ children }) => {
     // This is for when players want to "play again" after a game has concluded
     clearBoardDOM();
     dispatch({
-      type: "START_NEW_GAME",
+      type: 'START_NEW_GAME',
     });
   };
 
   const clearBoardDOM = () => {
-    [...document.querySelectorAll(".game-piece")].forEach((piece) => {
+    [...document.querySelectorAll('.game-piece')].forEach((piece) => {
       piece.remove();
     });
-    [...document.querySelectorAll(".piece-win-marker")].forEach((marker) => {
+    [...document.querySelectorAll('.piece-win-marker')].forEach((marker) => {
       marker.remove();
     });
   };
@@ -264,7 +264,7 @@ const AppProvider = ({ children }) => {
     // This is for when players restart a game
     clearBoardDOM();
     dispatch({
-      type: "RESTART_GAME",
+      type: 'RESTART_GAME',
     });
     closePauseMenu();
   };
@@ -280,22 +280,21 @@ const AppProvider = ({ children }) => {
 
   const computerOpponent = () => {
     // This sets the "isComputerPlaying" state variable to true. Necessary for player vs cpu games
-    dispatch({ type: "COMPUTER_IS_PLAYING" });
+    dispatch({ type: 'COMPUTER_IS_PLAYING' });
   };
 
   const humanOpponent = () => {
     // This sets the "isComputerPlaying" state variable to false. Necessary for player vs player games
-    dispatch({ type: "HUMAN_IS_PLAYING" });
+    dispatch({ type: 'HUMAN_IS_PLAYING' });
   };
 
   // Move timer related functions
   const CounterMinusOneSec = () => {
-    dispatch({ type: "COUNTDOWN" });
+    dispatch({ type: 'COUNTDOWN' });
   };
   const resetCounter = () => {
-    dispatch({ type: "RESET_COUNTDOWN" });
+    dispatch({ type: 'RESET_COUNTDOWN' });
   };
-  ///////////////////////////////////
 
   const getFirstAvailableRow = (pieces, column) => {
     // returns the first available row in a column
@@ -318,10 +317,10 @@ const AppProvider = ({ children }) => {
     }
     removeUnplacedPiece();
 
-    let gameboard = document.querySelector(".gameboard");
+    let gameboard = document.querySelector('.gameboard');
     let boardColumn = gameboard.children[column];
-    let indicator = document.createElement("img");
-    indicator.className = "column-indicator";
+    let indicator = document.createElement('img');
+    indicator.className = 'column-indicator';
     indicator.dataset.placed = false;
     indicator.src = `${state.isRedTurn ? RedIndicator : YellowIndicator}`;
     indicator.dataset.player = player;
@@ -335,7 +334,7 @@ const AppProvider = ({ children }) => {
       return;
     }
 
-    let gameboard = document.querySelector(".gameboard");
+    let gameboard = document.querySelector('.gameboard');
     let availableRow = getFirstAvailableRow(state.pieces, column);
 
     if (availableRow === -1) {
@@ -351,8 +350,8 @@ const AppProvider = ({ children }) => {
     updatePieces(indexToUpdate, player);
 
     let boardColumn = gameboard.children[indexToUpdate];
-    let gamePiece = document.createElement("div");
-    gamePiece.className = "game-piece";
+    let gamePiece = document.createElement('div');
+    gamePiece.className = 'game-piece';
     gamePiece.dataset.placed = true;
     gamePiece.dataset.player = player;
     boardColumn.appendChild(gamePiece);
@@ -396,8 +395,7 @@ const AppProvider = ({ children }) => {
         mouseOverColumnIndicator,
         handlePlayerMove,
         otherPlayerIsWinner,
-      }}
-    >
+      }}>
       {children}
     </AppContext.Provider>
   );

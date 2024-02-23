@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useGlobalContext } from "../context";
+import { useEffect } from 'react';
+import { useGlobalContext } from '../store/context';
 
 const YellowTimer = () => {
   const {
@@ -31,14 +31,13 @@ const YellowTimer = () => {
   return (
     <div
       className={`${
-        isWinnerDeclared ? "timer yellow-timer hidden" : "timer yellow-timer"
-      } `}
-    >
-      <div className="timer-text">
-        <p className="timer-turn">{`${
+        isWinnerDeclared ? 'timer yellow-timer hidden' : 'timer yellow-timer'
+      } `}>
+      <div className='timer-text'>
+        <p className='timer-turn'>{`${
           isComputerPlaying ? "cpu's turn" : "player 2's turn"
         }`}</p>
-        <p className="timer-seconds-left">{timePerMove}s</p>
+        <p className='timer-seconds-left'>{timePerMove}s</p>
       </div>
     </div>
   );

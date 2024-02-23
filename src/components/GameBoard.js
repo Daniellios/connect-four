@@ -1,5 +1,5 @@
-import { useGlobalContext } from "../context";
-import { useEffect } from "react";
+import { useGlobalContext } from '../store/context';
+import { useEffect } from 'react';
 
 const GameBoard = () => {
   const {
@@ -21,15 +21,14 @@ const GameBoard = () => {
   }, [pieces]);
 
   return (
-    <div className="gameboard">
+    <div className='gameboard'>
       {createBoardCells().map((_, index) => {
         return (
           <div
             key={index}
-            className="cell"
+            className='cell'
             onMouseOver={() => mouseOverColumnIndicator(index % 7)}
-            onClick={(e) => handlePlayerMove(e, index % 7)}
-          ></div>
+            onClick={(e) => handlePlayerMove(e, index % 7)}></div>
         );
       })}
     </div>

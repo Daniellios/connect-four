@@ -1,4 +1,4 @@
-import { useGlobalContext } from "../context";
+import { useGlobalContext } from '../store/context';
 
 const WinnerBg = () => {
   const { isWinnerDeclared, displayWinnerBgColor } = useGlobalContext();
@@ -8,9 +8,8 @@ const WinnerBg = () => {
       className={`${
         isWinnerDeclared
           ? `winner-background ${displayWinnerBgColor()}`
-          : "winner-background "
-      }`}
-    ></div>
+          : 'winner-background '
+      }`}></div>
   );
 };
 
