@@ -1,11 +1,28 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useReducer, createContext } from 'react';
 import reducer from './reducer';
-import RedIndicator from '../../src/assets/images/marker-red.svg';
-import YellowIndicator from '../../src/assets/images/marker-yellow.svg';
 
-const AppContext = React.createContext();
+const YellowIndicator: string = require("../assets/images/marker-yellow.svg").default;
+const RedIndicator: string = require("../assets/images/marker-red.svg").default;
 
-const initialState = {
+export interface InitialState {
+  isGameRulesOpen: boolean;
+  isPauseMenuOpen: boolean,
+  isComputerPlaying: boolean,
+  isRedTurn: boolean,
+  redScore: number,
+  yellowScore: number,
+  timePerMove: number,
+  firstTurnRed: boolean,
+  isAnimationInProgress: boolean,
+  isWinnerDeclared: boolean,
+  isDraw: boolean,
+  pieces: number[]
+}
+
+
+const AppContext = createContext(null);
+
+const initialState: InitialState = {
   isGameRulesOpen: false,
   isPauseMenuOpen: false,
   isComputerPlaying: false,
@@ -23,6 +40,8 @@ const initialState = {
   ],
 };
 
+
+
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -34,7 +53,6 @@ const AppProvider = ({ children }) => {
   const closeGameRules = () => {
     dispatch({ type: 'CLOSE_GAME_RULES' });
   };
-  ///////////////
 
   // Pause menu
   const openPauseMenu = () => {
@@ -44,7 +62,6 @@ const AppProvider = ({ children }) => {
   const closePauseMenu = () => {
     dispatch({ type: 'CLOSE_PAUSE_MENU' });
   };
-  ////////////////
 
   const switchWhoseTurnItIs = () => {
     // Switches turn from red to yellow and vice versa
@@ -53,15 +70,15 @@ const AppProvider = ({ children }) => {
 
   const createBoardCells = () => {
     // Creates the individual slots for the gameboard
-    const divArr = [];
+    const divArr: any = [];
     for (let i = 0; i < 42; i++) {
-      const div = document.createElement('div');
+      const div: any = document.createElement('div');
       divArr.push(div);
     }
     return divArr;
   };
 
-  const updatePieces = (indexToUpdate, player) => {
+  const updatePieces = (indexToUpdate: number, player: number) => {
     // Updates the pieces state variable
     dispatch({
       type: 'UPDATE_PIECES_STATE',
@@ -78,7 +95,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'TURN_ON_ANIMATION' });
   };
 
-  const gamePieceDropAnimation = (gamePiece, pieceDropHeight) => {
+  const gamePieceDropAnimation = (gamePiece, pieceDropHeight: number) => {
     // sets the game piece drop animation
     gamePiece.animate(
       [
@@ -97,7 +114,7 @@ const AppProvider = ({ children }) => {
 
   const displayWinnerName = () => {
     // returns the appropriate player name in the winner display card
-    let name;
+    let name: string;
     if (state.isRedTurn && state.isComputerPlaying && !state.isDraw) {
       name = 'you';
     } else if (state.isRedTurn && !state.isComputerPlaying && !state.isDraw) {
@@ -127,7 +144,7 @@ const AppProvider = ({ children }) => {
 
   const addWinMarker = (boardCell) => {
     // adds circle indicators on the winning game pieces
-    let gameboard = document.querySelector('.gameboard');
+    let gameboard: any = document.querySelector('.gameboard');
 
     let winMarker = document.createElement('div');
     winMarker.className = 'piece-win-marker';
@@ -202,7 +219,7 @@ const AppProvider = ({ children }) => {
     return false;
   };
 
-  const addPointToScore = (player) => {
+  const addPointToScore = (player: number) => {
     if (player === 1) {
       dispatch({ type: 'ADD_POINT_TO_RED' });
     } else if (player === 2) {
@@ -210,14 +227,14 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  const declareWinner = (player) => {
+  const declareWinner = (player: number) => {
     dispatch({ type: 'DECLARE_WINNER' });
     if (player === 1 || player === 2) {
       addPointToScore(player);
     }
   };
 
-  const checkForEndOfGame = (player, pieces) => {
+  const checkForEndOfGame = (player: number, pieces: number[]) => {
     if (didPlayerWin(player, pieces)) {
       declareWinner(player);
       turnAnimationOn();
@@ -232,7 +249,7 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  const otherPlayerIsWinner = (currentPlayer) => {
+  const otherPlayerIsWinner = (currentPlayer: number) => {
     // This is for when a player's timer runs out. The other player is awarded the win
     switchWhoseTurnItIs();
 
@@ -274,7 +291,7 @@ const AppProvider = ({ children }) => {
     let previousIndicator = document.querySelector("[data-placed='false']");
 
     if (previousIndicator) {
-      previousIndicator.parentElement.removeChild(previousIndicator);
+      previousIndicator?.parentElement?.removeChild(previousIndicator);
     }
   };
 
@@ -318,13 +335,13 @@ const AppProvider = ({ children }) => {
     removeUnplacedPiece();
 
     let gameboard = document.querySelector('.gameboard');
-    let boardColumn = gameboard.children[column];
-    let indicator = document.createElement('img');
+    let boardColumn = gameboard?.children[column];
+    let indicator: any = document.createElement('img');
     indicator.className = 'column-indicator';
     indicator.dataset.placed = false;
     indicator.src = `${state.isRedTurn ? RedIndicator : YellowIndicator}`;
     indicator.dataset.player = player;
-    boardColumn.appendChild(indicator);
+    boardColumn?.appendChild(indicator);
   };
 
   const handlePlayerMove = (e, column) => {
@@ -349,14 +366,14 @@ const AppProvider = ({ children }) => {
 
     updatePieces(indexToUpdate, player);
 
-    let boardColumn = gameboard.children[indexToUpdate];
-    let gamePiece = document.createElement('div');
+    let boardColumn = gameboard!.children[indexToUpdate];
+    let gamePiece: any = document.createElement('div');
     gamePiece.className = 'game-piece';
     gamePiece.dataset.placed = true;
     gamePiece.dataset.player = player;
     boardColumn.appendChild(gamePiece);
 
-    let unplacedGamePiece = document.querySelector("[data-placed='false']");
+    let unplacedGamePiece: any = document.querySelector("[data-placed='false']");
     let unplacedY = unplacedGamePiece.getBoundingClientRect().y;
     let placedY = gamePiece.getBoundingClientRect().y;
     let yDiff = unplacedY - placedY;

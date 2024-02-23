@@ -12,10 +12,6 @@ Users should be able to:
 - See hover and focus states for all interactive elements on the page
 - See the discs animate into their position when a move is made
 
-### Screenshot
-
-![](/connect_four_thumb.png)
-
 ### Links
 
 - Code URL: []()
