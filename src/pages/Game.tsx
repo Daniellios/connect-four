@@ -8,14 +8,9 @@ import RedTimer from '../components/RedTimer';
 import YellowTimer from '../components/YellowTimer';
 import { useGlobalContext } from '../store/context';
 import WinnerCard from '../components/WinnerCard';
-import { useEffect } from 'react';
 
-const Game = () => {
+const Game: React.FC = () => {
   const { isRedTurn, isWinnerDeclared } = useGlobalContext();
-
-  useEffect(() => {
-    document.querySelector('body').style.backgroundColor = '#00000';
-  }, []);
 
   return (
     <main>

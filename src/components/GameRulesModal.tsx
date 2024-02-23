@@ -1,15 +1,15 @@
 import React from 'react';
-import CheckIcon from '../assets/images/icon-check.svg';
 import { useGlobalContext } from '../store/context';
+
+const CheckIcon: string = require("../assets/images/icon-check.svg").default;
 
 const GameRulesModal = () => {
   const { isGameRulesOpen, closeGameRules } = useGlobalContext();
 
   return (
     <div
-      className={`${
-        isGameRulesOpen ? 'game-rules-overlay show-modal' : 'game-rules-overlay'
-      }`}>
+      className={`${isGameRulesOpen ? 'game-rules-overlay show-modal' : 'game-rules-overlay'
+        }`}>
       <article className='game-rules-modal'>
         <h1 className='game-rules-modal-header'>rules</h1>
         <div className='game-rules-modal-body'>

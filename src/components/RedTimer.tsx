@@ -17,7 +17,6 @@ const RedTimer = () => {
         CounterMinusOneSec();
 
         if (timePerMove === 0) {
-          // 1 = red player
           otherPlayerIsWinner(1);
         }
       }
@@ -30,13 +29,11 @@ const RedTimer = () => {
 
   return (
     <div
-      className={`${
-        isWinnerDeclared ? 'timer red-timer hidden' : 'timer red-timer'
-      } `}>
+      className={`${isWinnerDeclared ? 'timer red-timer hidden' : 'timer red-timer'
+        } `}>
       <div className='timer-text'>
-        <p className='timer-turn'>{`${
-          isComputerPlaying ? 'your turn' : "player 1's turn"
-        }`}</p>
+        <p className='timer-turn'>{`${isComputerPlaying ? 'your turn' : "player 1's turn"
+          }`}</p>
         <p className='timer-seconds-left'>{timePerMove}s</p>
       </div>
     </div>

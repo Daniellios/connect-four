@@ -1,6 +1,8 @@
 import { useGlobalContext } from '../store/context';
-import Player2Icon from '../assets/images/player-two.svg';
-import CPUIcon from '../assets/images/cpu.svg';
+
+const Player2Icon: string = require("../assets/images/player-two.svg").default;
+const CPUIcon: string = require("../assets/images/cpu.svg").default;
+
 
 const YellowScoreCard = () => {
   const { isComputerPlaying, yellowScore } = useGlobalContext();
@@ -14,9 +16,8 @@ const YellowScoreCard = () => {
       />
 
       <div className='score-card-stats stat-mg-right'>
-        <p className='score-card-player-title opp-title'>{`${
-          isComputerPlaying ? 'cpu' : 'player 2'
-        }`}</p>
+        <p className='score-card-player-title opp-title'>{`${isComputerPlaying ? 'cpu' : 'player 2'
+          }`}</p>
         <p className='score-card-score'>{yellowScore}</p>
       </div>
     </div>

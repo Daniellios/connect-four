@@ -1,5 +1,5 @@
 import React from "react";
-import GameLogo from "../assets/images/logo.svg";
+const GameLogo: string = require("../assets/images/logo.svg").default;
 
 const Logo = () => {
   return <img src={GameLogo} alt="game logo" />;

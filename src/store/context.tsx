@@ -20,7 +20,7 @@ export interface InitialState {
 }
 
 
-const AppContext = createContext(null);
+const AppContext = createContext<any>(null);
 
 const initialState: InitialState = {
   isGameRulesOpen: false,
@@ -39,7 +39,6 @@ const initialState: InitialState = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
   ],
 };
-
 
 
 const AppProvider = ({ children }) => {
@@ -61,6 +60,9 @@ const AppProvider = ({ children }) => {
 
   const closePauseMenu = () => {
     dispatch({ type: 'CLOSE_PAUSE_MENU' });
+    dispatch({
+      type: 'RESTART_GAME',
+    });
   };
 
   const switchWhoseTurnItIs = () => {

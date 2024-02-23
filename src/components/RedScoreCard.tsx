@@ -1,6 +1,8 @@
 import { useGlobalContext } from '../store/context';
-import YouIcon from '../assets/images/you.svg';
-import Player1Icon from '../assets/images/player-one.svg';
+
+const Player1Icon: string = require("../assets/images/player-one.svg").default;
+const YouIcon: string = require("../assets/images/you.svg").default;
+
 
 const RedScoreCard = () => {
   const { isComputerPlaying, redScore } = useGlobalContext();
@@ -14,9 +16,8 @@ const RedScoreCard = () => {
       />
 
       <div className='score-card-stats stat-mg-left'>
-        <p className='score-card-player-title'>{`${
-          isComputerPlaying ? 'you' : 'player 1'
-        }`}</p>
+        <p className='score-card-player-title'>{`${isComputerPlaying ? 'you' : 'player 1'
+          }`}</p>
         <p className='score-card-score'>{redScore}</p>
       </div>
     </div>
