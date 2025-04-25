@@ -22,7 +22,7 @@ const GameBoard = () => {
 
   return (
     <div className='gameboard'>
-      {createBoardCells().map((_, index) => {
+      {createBoardCells().map((value: any, index: number) => {
         return (
           <div
             key={index}

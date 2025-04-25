@@ -1,7 +1,6 @@
 import GameLogo from "../assets/images/logo.svg?react";
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../store/context';
-import { emitEvent, postEvent } from '@telegram-apps/sdk-react';
 
 const PlayVPlayIcon: string = "src/assets/images/player-vs-player.svg";
 

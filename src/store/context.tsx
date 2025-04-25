@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useContext, useReducer, createContext } from 'react';
 import reducer from './reducer';
 
@@ -41,7 +42,7 @@ const initialState: InitialState = {
 };
 
 
-const AppProvider = ({ children }) => {
+const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // Game rules

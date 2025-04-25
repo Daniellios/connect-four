@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Game from "./pages/Game";
 import { AppProvider } from 'store/context';
-import { isMiniAppDark, retrieveLaunchParams, retrieveRawInitData, useSignal } from '@telegram-apps/sdk-react';
+import { isMiniAppDark, retrieveLaunchParams, useSignal } from '@telegram-apps/sdk-react';
 import { useMemo } from 'react';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 
@@ -10,12 +10,6 @@ function App() {
 
   const lp = useMemo(() => retrieveLaunchParams(), []);
   const isDark = useSignal(isMiniAppDark);
-
-  const initDataRaw = retrieveRawInitData()
-
-  console.log('initDataRaw', initDataRaw);
-
-
 
   return (
     <AppRoot
