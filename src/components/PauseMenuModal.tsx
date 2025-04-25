@@ -1,14 +1,18 @@
+import { postEvent } from '@telegram-apps/sdk-react';
 import { useGlobalContext } from '../store/context';
 import { Link } from 'react-router-dom';
 
 const PauseMenuModal = () => {
   const { isPauseMenuOpen, closePauseMenu, restartGame } = useGlobalContext();
 
+  const handleQuitGame = () => {
+    postEvent('web_app_close')
+  }
+
   return (
     <div
-      className={`${
-        isPauseMenuOpen ? 'pause-menu-overlay show-modal' : 'pause-menu-overlay'
-      }`}>
+      className={`${isPauseMenuOpen ? 'pause-menu-overlay show-modal' : 'pause-menu-overlay'
+        }`}>
       <div className='pause-menu'>
         <h1 className='pause-menu-header'>pause</h1>
 
@@ -26,7 +30,7 @@ const PauseMenuModal = () => {
           <Link
             to='/'
             className='menu-link pause-menu-link text-center pink-bg-clr white-text-clr'
-            onClick={closePauseMenu}>
+            onClick={handleQuitGame}>
             quit game
           </Link>
         </div>

@@ -1,7 +1,7 @@
 import { useGlobalContext } from '../store/context';
 
-const Player1Icon: string = require("../assets/images/player-one.svg").default;
-const YouIcon: string = require("../assets/images/you.svg").default;
+const Player1Icon: string = "src/assets/images/player-one.svg";
+const YouIcon: string = "src/assets/images/you.svg";
 
 
 const RedScoreCard = () => {

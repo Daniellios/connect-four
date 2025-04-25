@@ -1,8 +1,6 @@
 import React from 'react';
 import { useGlobalContext } from '../store/context';
 
-const CheckIcon: string = require("../assets/images/icon-check.svg").default;
-
 const GameRulesModal = () => {
   const { isGameRulesOpen, closeGameRules } = useGlobalContext();
 

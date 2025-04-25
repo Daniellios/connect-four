@@ -1,8 +1,8 @@
 import React, { useContext, useReducer, createContext } from 'react';
 import reducer from './reducer';
 
-const YellowIndicator: string = require("../assets/images/marker-yellow.svg").default;
-const RedIndicator: string = require("../assets/images/marker-red.svg").default;
+const YellowIndicator: string = "src/assets/images/marker-yellow.svg";
+const RedIndicator: string = "src/assets/images/marker-red.svg";
 
 export interface InitialState {
   isGameRulesOpen: boolean;

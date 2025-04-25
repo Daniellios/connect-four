@@ -1,15 +1,17 @@
-import Logo from './Logo';
+import GameLogo from "../assets/images/logo.svg?react";
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../store/context';
+import { emitEvent, postEvent } from '@telegram-apps/sdk-react';
 
-const PlayVPlayIcon: string = require("../assets/images/player-vs-player.svg").default;
+const PlayVPlayIcon: string = "src/assets/images/player-vs-player.svg";
 
 const MainMenu = () => {
   const { openGameRules, humanOpponent } = useGlobalContext();
 
+
   return (
     <div className='menu'>
-      <Logo />
+      <GameLogo />
       <div>
         <Link
           to='/four-in-a-row'

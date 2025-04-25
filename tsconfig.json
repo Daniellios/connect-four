@@ -1,23 +1,30 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "downlevelIteration": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "src",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": false
-  },
-  "include": ["src", "typings"]
+    "compilerOptions": {
+        "allowImportingTsExtensions": true,
+        "isolatedModules": true,
+        "jsx": "react-jsx",
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "noEmit": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "baseUrl": "src",
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "types": ["vite/client"]
+    },
+    "include": ["src"],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
 }

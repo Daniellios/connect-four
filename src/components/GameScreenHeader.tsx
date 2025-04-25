@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from './Logo';
 import { useGlobalContext } from '../store/context';
+import GameLogo from "../assets/images/logo.svg?react";
 
 const GameScreenHeader = () => {
   const { openPauseMenu, restartGame } = useGlobalContext();
@@ -11,7 +11,7 @@ const GameScreenHeader = () => {
         onClick={openPauseMenu}>
         Menu
       </button>
-      <Logo />
+      <GameLogo />
       <button className='game-screen-btn' onClick={restartGame}>
         Restart
       </button>
