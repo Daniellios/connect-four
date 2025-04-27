@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGlobalContext } from '../store/context';
-import GameLogo from "../assets/images/logo.svg?react";
+import GameLogo from "assets/images/logo.svg?react";
 
 const GameScreenHeader = () => {
   const { openPauseMenu, restartGame } = useGlobalContext();

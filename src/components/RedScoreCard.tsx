@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 import { useGlobalContext } from '../store/context';
 import { retrieveLaunchParams } from '@telegram-apps/sdk-react';
 
-const Player1Icon: string = "src/assets/images/player-one.svg";
-const YouIcon: string = "src/assets/images/you.svg";
+const Player1Icon: string = "assets/images/player-one.svg";
+const YouIcon: string = "assets/images/you.svg";
 
 
 const RedScoreCard = () => {

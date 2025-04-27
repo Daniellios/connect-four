@@ -1,7 +1,7 @@
 import { useGlobalContext } from '../store/context';
 
-const Player2Icon: string = "src/assets/images/player-two.svg";
-const CPUIcon: string = "src/assets/images/cpu.svg";
+const Player2Icon: string = "assets/images/player-two.svg";
+const CPUIcon: string = "assets/images/cpu.svg";
 
 
 const YellowScoreCard = () => {
