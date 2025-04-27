@@ -208,6 +208,7 @@ Menus (main and pause)
 .menu-link-icon {
     width: 5.125rem;
     height: 2.875rem;
+    content: url("../src/assets/images/player-vs-player.svg");
 }
 
 .pause-menu {
@@ -517,9 +518,11 @@ Score Cards
 
 .player-icon {
     left: -1.8rem;
+    content: url("../src/assets/images/you.svg");
 }
 .opponent-icon {
     right: -1.8rem;
+    content: url("../src/assets/images/player-two.svg");
 }
 
 .score-card-player-title {

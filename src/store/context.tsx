@@ -30,7 +30,7 @@ const initialState: InitialState = {
   isRedTurn: true,
   redScore: 0,
   yellowScore: 0,
-  timePerMove: 1500,
+  timePerMove: 30,
   firstTurnRed: true,
   isAnimationInProgress: false,
   isWinnerDeclared: false,

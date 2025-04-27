@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../store/context';
 import { useMemo } from 'react'
 import { retrieveLaunchParams } from '@telegram-apps/sdk-react';
+
 const WinnerCard = () => {
   const navigate = useNavigate()
   const { displayWinnerName, startNewGame, restartGame } = useGlobalContext();

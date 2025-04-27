@@ -75,7 +75,7 @@ const reducer = (state, action) => {
         case "RESET_COUNTDOWN":
             return {
                 ...state,
-                timePerMove: 1500,
+                timePerMove: 30,
             };
 
         case "START_NEW_GAME":

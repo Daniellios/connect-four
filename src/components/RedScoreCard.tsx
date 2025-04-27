@@ -2,10 +2,6 @@ import { useMemo } from 'react';
 import { useGlobalContext } from '../store/context';
 import { retrieveLaunchParams } from '@telegram-apps/sdk-react';
 
-const Player1Icon: string = "assets/images/player-one.svg";
-const YouIcon: string = "assets/images/you.svg";
-
-
 const RedScoreCard = () => {
   const { isComputerPlaying, redScore } = useGlobalContext();
 
@@ -14,7 +10,6 @@ const RedScoreCard = () => {
   return (
     <div className='score-card red-card'>
       <img
-        src={`${isComputerPlaying ? YouIcon : Player1Icon}`}
         alt='player 1'
         className='player-icon'
       />
