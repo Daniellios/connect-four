@@ -1,12 +1,11 @@
-import GameLogo from "../assets/images/logo.svg?react";
+import GameLogo from "assets/images/logo.svg?react";
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../store/context';
 
-const PlayVPlayIcon: string = "src/assets/images/player-vs-player.svg";
+const PlayVPlayIcon: string = "assets/images/player-vs-player.svg";
 
 const MainMenu = () => {
   const { openGameRules, humanOpponent } = useGlobalContext();
-
 
   return (
     <div className='menu'>

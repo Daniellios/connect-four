@@ -9,7 +9,6 @@ const GameRulesModal = () => {
       className={`${isGameRulesOpen ? 'game-rules-overlay show-modal' : 'game-rules-overlay'
         }`}>
       <article className='game-rules-modal'>
-        <h1 className='game-rules-modal-header'>rules</h1>
         <div className='game-rules-modal-body'>
           <div className='game-rules-section-1'>
             <h2 className='game-rules-modal-subheader'>objective</h2>

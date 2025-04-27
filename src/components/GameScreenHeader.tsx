@@ -11,7 +11,7 @@ const GameScreenHeader = () => {
         onClick={openPauseMenu}>
         Menu
       </button>
-      <GameLogo />
+      <GameLogo className='game-logo' />
       <button className='game-screen-btn' onClick={restartGame}>
         Restart
       </button>

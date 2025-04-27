@@ -30,7 +30,7 @@ const initialState: InitialState = {
   isRedTurn: true,
   redScore: 0,
   yellowScore: 0,
-  timePerMove: 30,
+  timePerMove: 1500,
   firstTurnRed: true,
   isAnimationInProgress: false,
   isWinnerDeclared: false,
@@ -61,9 +61,6 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   const closePauseMenu = () => {
     dispatch({ type: 'CLOSE_PAUSE_MENU' });
-    dispatch({
-      type: 'RESTART_GAME',
-    });
   };
 
   const switchWhoseTurnItIs = () => {
