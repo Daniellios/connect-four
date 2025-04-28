@@ -691,6 +691,9 @@ GameBoard
     padding-left: 0.1rem;
     z-index: 1;
     display: flex;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    -webkit-focus-ring-color: none;
     user-select: none;
 }
 
