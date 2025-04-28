@@ -68,6 +68,16 @@ General Styles
     padding: 0;
 }
 
+button,
+a,
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    -webkit-focus-ring-color: none;
+}
+
 html {
     font-size: 100%; /*16px*/
 }
