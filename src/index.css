@@ -693,6 +693,7 @@ GameBoard
 .game-piece {
     width: 2.5rem;
     height: 2.8125rem;
+    user-select: none;
 }
 .game-piece[data-player="1"] {
     background: url("../src/assets/images/counter-red-small.svg") no-repeat;
