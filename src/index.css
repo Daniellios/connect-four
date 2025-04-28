@@ -681,6 +681,7 @@ GameBoard
     padding-left: 0.1rem;
     z-index: 1;
     display: flex;
+    user-select: none;
 }
 
 .column-indicator {
